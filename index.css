@@ -7,10 +7,37 @@
 
 .card{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+    color: #ffffff;
 }
 
 .card-item{
-    background-color: rgb(253, 250, 92);
+    background: linear-gradient(0deg, #162525, #1d1d1d);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    
+}
+.cabecera{
+    background: #46979f;
+    height: 125px;
+    margin-bottom: 75px;
+}
+img{
+    height: 150px;
+    width: 150px;
+    border-radius: 1000px;
+    object-fit: auto;
+    position: absolute;
+    right: calc(50% - 75px);
+    top: calc(50% - 125px);
+
+}
+p, label{
+    padding: 3px 20px;
+    font-weight: 600;
+}
+.titulo{
+    font-weight: 400;
 }

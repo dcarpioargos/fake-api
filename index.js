@@ -7,14 +7,15 @@ function getData(){
     .then( data => {
         console.log("Datos de la api: ", data)
         for(let i = 0; i < data.length; i++ ){
+
              let bloqueHtml = 
              `
              <div class='card-item'>
-                <div class='cabecera'></div>
-                <img width="100px" src="${data[i].image}" />
-                <p>Titulo: ${data[i].title}</p>
-                <p>Precio: ${data[i].price}</p>
-                <p>Categ: ${data[i].category}</p>
+                <div class='cabecera' ></div>
+                <img src="${data[i].image}" /> 
+                <p class='titulo'>${data[i].title}</p>
+                <p>$${data[i].price}</p>
+                <label>${data[i].category}</label>
              </div>
              `;
              tabla += bloqueHtml;
