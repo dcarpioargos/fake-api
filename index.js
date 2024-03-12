@@ -5,17 +5,22 @@ function getData(){
     fetch(URL)
     .then( response => response.json() )
     .then( data => {
-        console.log("Datos de la api: ", data)
+       
         for(let i = 0; i < data.length; i++ ){
-
+            let r = Math.floor( Math.random()*256 ) 
+            let g = Math.floor( Math.random()*256 ) 
+            let b = Math.floor( Math.random()*256 ) 
              let bloqueHtml = 
              `
              <div class='card-item'>
-                <div class='cabecera' ></div>
-                <img src="${data[i].image}" /> 
+                <div class='cabecera' style="background: rgb(${r} ${g} ${b} );" ></div>
+                <div class='cont-img'>
+                    <img src="${data[i].image}" />
+                </div>
+                 
                 <p class='titulo'>${data[i].title}</p>
                 <p>$${data[i].price}</p>
-                <label>${data[i].category}</label>
+                <label class='categoria'>${data[i].category}</label>
              </div>
              `;
              tabla += bloqueHtml;

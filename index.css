@@ -7,7 +7,7 @@
 
 .card{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
     color: #ffffff;
 }
@@ -17,7 +17,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    
+    padding-bottom: 30px;
 }
 .cabecera{
     background: #46979f;
@@ -25,14 +25,21 @@
     margin-bottom: 75px;
 }
 img{
+    height: 100%;
+    width: 150px;
+    object-fit: contain;
+    padding: 10px;   
+}
+.cont-img{
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    object-fit: auto;
     position: absolute;
     right: calc(50% - 75px);
     top: calc(50% - 125px);
-
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    overflow: hidden;
 }
 p, label{
     padding: 3px 20px;
@@ -40,4 +47,16 @@ p, label{
 }
 .titulo{
     font-weight: 400;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap ;
+}
+
+.categoria{
+    background-color:#343333bd;
+    border-radius: 20px;
+    color: #6fca8e;
+    font-weight: 400;
+    margin-left: 15px;
 }
