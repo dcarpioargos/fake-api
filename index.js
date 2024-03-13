@@ -5,11 +5,19 @@ function getData(){
     fetch(URL)
     .then( response => response.json() )
     .then( data => {
-       
-        for(let i = 0; i < data.length; i++ ){
+        let productosCardSet = JSON.stringify(data)
+        localStorage.setItem('productos', productosCardSet )
+        console.log("productosCardSet: ",productosCardSet)
+
+        let productosCardGet = localStorage.getItem('productos')
+        let listaProucto = JSON.parse(productosCardGet)
+        console.log("listaProucto: ", listaProucto)
+
+        for(let i = 0; i < listaProucto.length; i++ ){
             let r = Math.floor( Math.random()*256 ) 
             let g = Math.floor( Math.random()*256 ) 
             let b = Math.floor( Math.random()*256 ) 
+            let precio = data[i].price
              let bloqueHtml = 
              `
              <div class='card-item'>
@@ -17,9 +25,8 @@ function getData(){
                 <div class='cont-img'>
                     <img src="${data[i].image}" />
                 </div>
-                 
                 <p class='titulo'>${data[i].title}</p>
-                <p>$${data[i].price}</p>
+                <p>$${precio} <span class='precio-sd'> $${ ((precio * 0.1) + precio).toFixed(2)  }</span> </p>
                 <label class='categoria'>${data[i].category}</label>
              </div>
              `;
